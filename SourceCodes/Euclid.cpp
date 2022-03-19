@@ -7,7 +7,9 @@
 * Reference: Taken from "The Art of Computer Programming"
 *			 Volume 1 Fundamental Algorithms 3rd Ed 
 *			 by Donald E. Knuth
-* Date: 3/18/2022
+* 
+* Version: v1.2 
+* Date updated: 3/18/2022
 *******************************************************/
 #include <iostream>
 #include <stdio.h>
@@ -16,9 +18,18 @@ using namespace std;
 //This function returns the Greatest Common Divisor between two positive integers m and n.
 int euclidAlgorithm(int m, int n);
 
+
 int main() {
 	int m = 30, n = 12;
 	printf("The numbers %d  and %d should have GCD 6.\n", m, n);
+
+	//Ensure m > n to decrease running time by 1/2 in all cases.
+	if (n > m) {
+		int temp = m;
+		m = n;
+		n = temp;
+	}
+
 	printf("The GCD is %d.\n", euclidAlgorithm(m, n));
 }
 
